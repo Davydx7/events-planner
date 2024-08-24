@@ -1,48 +1,37 @@
-import type { MetaFunction } from "@remix-run/node";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import { Link } from "@remix-run/react";
+import { Button } from "@/components/ui/button";
 
 export default function Index() {
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="container mx-auto px-4 py-12 text-center">
+      <h1 className="text-4xl font-bold mb-6">Welcome to InnovaPlan</h1>
+      <p className="text-xl mb-8">Your premier event planning solution</p>
+
+      <div className="space-y-4">
+        <Button asChild size="lg" className="mr-4">
+          <Link to="/home">Explore Our Services</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link to="/book">Book an Event</Link>
+        </Button>
+      </div>
+
+      <nav className="mt-12">
+        <ul className="flex justify-center space-x-6">
+          <li>
+            <Link to="/home" className="text-blue-600 hover:underline">Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-blue-600 hover:underline">About Us</Link>
+          </li>
+          <li>
+            <Link to="/about/ceo" className="text-blue-600 hover:underline">Our CEO</Link>
+          </li>
+          <li>
+            <Link to="/book" className="text-blue-600 hover:underline">Book Event</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
